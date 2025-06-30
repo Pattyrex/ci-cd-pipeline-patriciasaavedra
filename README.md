@@ -12,25 +12,24 @@ Este proyecto es una aplicación web simple en Node.js con Express que implement
 ## Estructura del proyecto
 
 ci-cd-pipeline-patriciasaavedra/
-├── .github
-│   └── workflows
-│       ├── ci.yml
-│       └── deploy.yml
-├── docs
-│   └── manual.md
-├── src
-│   ├── config.js
-│   ├── index.js
-│   └── utils.js
-├── tests
-│   ├── integration.test.js
-│   └── utils.test.js
 ├── .gitignore
 ├── README.md
 ├── eslint.config.js
 ├── package-lock.json
-└── package.json
-
+├── package.json
+├── .github/
+│   └── workflows/
+│       ├── ci.yml
+│       └── deploy.yml
+├── docs/
+│   └── manual.md
+├── src/
+│   ├── config.js
+│   ├── index.js
+│   └── utils.js
+├── tests/
+│   ├── integration.test.js
+│   └── utils.test.js
 
 
 ## Cómo ejecutar
