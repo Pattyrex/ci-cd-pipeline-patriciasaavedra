@@ -40,10 +40,10 @@ jobs:
       - name: Build project (simulate build step)
         run: |
           mkdir -p build
-          echo "Build successful" > build/build-info.txt
+          echo "Build successful on Node.js ${{ matrix.node-version }}" > build/build-info.txt
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: build-artifacts
+          name: build-artifacts-${{ github.run_id }}-${{ matrix.node-version }}
           path: build/
