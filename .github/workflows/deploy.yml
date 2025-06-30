@@ -1,0 +1,31 @@
+name: Deploy a Staging
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Desplegar a staging
+        run: echo "Despliegue simulado..."
+
+      - name: Notificación de éxito
+        if: success()
+        run: echo "✅ Despliegue exitoso" >> $GITHUB_STEP_SUMMARY
+
+      - name: Crear issue si falla
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: "🚨 Falla en el despliegue",
+              body: "Hubo un error en el workflow. Revisa los logs.",
+            });
